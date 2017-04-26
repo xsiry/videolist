@@ -15,12 +15,12 @@ html,
 body {
   font-family:"MicrosoftYaHei";
   width: 400px;
-  height: 334.5px;
+  height: 261px;
   margin: 0 auto;
   display: block;
 }
 body {
-	border: 1px solid #c6cbce;
+  border: 1px solid #c6cbce;
 }
 .header {
   width: 100%;
@@ -52,8 +52,8 @@ h3 {
 
 .main {
   width: 360px;
-  height: 266px;
-  padding-top: 1em;
+  height: 200px;
+  padding-top: 0.5em;
   padding-left: 0.5em;
   overflow-y: auto;
   display: block;
@@ -103,6 +103,8 @@ a {
 </style>
 
 <body>
+  <input type="hidden" name="wds_height" id="wds_height" value="261" />
+  <input type="hidden" name="wds_width" id="wds_width" value="400" />
   <div class="header">
     <div class="pull_left"><span class="span_position">网管提示</span></div>
     <div class="pull_right">
@@ -112,7 +114,7 @@ a {
   <div>
     <div class="main">
       <h3>英雄联盟电信大区网络波动公告</h3>
-      <div style="overflow:hidden;height: 156px;" id="textCore">尊敬的召唤师：<p>　　由于进行系统升级，我们将于4月19日7：30至12：00对均衡教均衡均衡均衡均衡派、流、均衡教派、影流、比尔吉沃特、德玛西亚进行停机维护，维护完成后将第一时间开启。</p><p>　　感谢大家对《英雄联盟》的大力支大力。</p></div>
+      <div style="overflow:hidden;height: 80px;" id="textCore">尊敬的召唤师：<p>　　由于进行系统升级，我们将于4月19日7：30至12：00对均衡教均衡均衡均衡均衡派、流、均衡教派、影流、比尔吉沃特、德玛西亚进行停机维护，维护完成后将第一时间开启。</p><p>　　感谢大家对《英雄联盟》的大力支大力。</p></div>
       <p><a style="margin-left:0em;" href="#">查看详情</a></p>
     </div>
   </div>
@@ -131,7 +133,7 @@ a {
     var text = obj.innerHTML;
     if (text != '') {
       var str = '';
-      var size = 100;
+      var size = 60;
       var filter = ['<','p','>','。', '-', ';', '，', '/'];
       var filterNum = 0;
       if (text.length > size) {  str = '...';}
