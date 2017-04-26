@@ -30,7 +30,7 @@ body {
 
 .header .img_position {
   position: relative;
-  top: 0.25em;
+  top: 0.3em;
   right: 0.2em;
   border: 0px;
   height: 18px;
@@ -38,7 +38,7 @@ body {
 
 .header .span_position {
   position: relative;
-  top: 0.3em;
+  top: 0.2em;
   left: 0.4em;
   color: #FFFFFF
 }
@@ -47,13 +47,14 @@ body {
 }
 
 h3 {
+  margin: 0.5em;
   text-align: center;
 }
 
 .main {
   width: 360px;
-  height: 200px;
-  padding-top: 0.5em;
+  height: 205px;
+  padding-top: 0.2em;
   padding-left: 0.5em;
   overflow-y: auto;
   display: block;
@@ -61,6 +62,16 @@ h3 {
   text-align: justify;
   overflow:hidden;
   text-overflow:ellipsis;
+}
+
+.main .main_text {
+  overflow:hidden;
+  height: 120px;
+}
+
+.main .check_detail {
+  margin-top: 0.5em;
+  margin-bottom: 0;
 }
 
 .footer {
@@ -114,8 +125,8 @@ a {
   <div>
     <div class="main">
       <h3>英雄联盟电信大区网络波动公告</h3>
-      <div style="overflow:hidden;height: 80px;" id="textCore">尊敬的召唤师：<p>　　由于进行系统升级，我们将于4月19日7：30至12：00对均衡教均衡均衡均衡均衡派、流、均衡教派、影流、比尔吉沃特、德玛西亚进行停机维护，维护完成后将第一时间开启。</p><p>　　感谢大家对《英雄联盟》的大力支大力。</p></div>
-      <p><a style="margin-left:0em;" href="#">查看详情</a></p>
+      <div class="main_text" id="textCore">尊敬的召唤师：<p>测试水电费第三方士大<b>夫水电费水电费水电费</b>/div>
+      <p class="check_detail"><a style="margin-left:0em;" href="#">查看详情</a></p>
     </div>
   </div>
   <div class="footer">
@@ -130,22 +141,12 @@ a {
 <script type="text/javascript">
   function substringText() {
     var obj = document.getElementById('textCore');
-    var text = obj.innerHTML;
+    var text = obj.innerText;
     if (text != '') {
       var str = '';
-      var size = 60;
-      var filter = ['<','p','>','。', '-', ';', '，', '/'];
-      var filterNum = 0;
+      var size = 110;
       if (text.length > size) {  str = '...';}
-
-      for (var i = 0; i < filter.length; i++) {
-        if (filter[i] == text.substring((size - (4+filterNum)), (size - (3+filterNum)))) {
-          size = size - 1;
-          filterNum += 1;
-          i = -1;
-        }
-      }
-      obj.innerHTML = text.substring(0, (size- (3+filterNum))) + str;
+      obj.innerHTML = text.substring(0, size) + str;
     }
   }
   window.onload = substringText;
