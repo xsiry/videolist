@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
   <meta name="description" content="">
@@ -13,31 +13,37 @@
 <style type="text/css">
 html,
 body {
+  font-family:"MicrosoftYaHei";
   width: 400px;
-  height: 324px;
+  height: 334.5px;
   margin: 0 auto;
   display: block;
 }
 body {
 	border: 1px solid #c6cbce;
 }
-
-header {
+.header {
   width: 100%;
   height: 25px;
-  background-color: #c6cbce;
+  background-color: #4284d9;
 }
 
-header .img_position {
+.header .img_position {
   position: relative;
-  top: 4px;
-  right: 5px;
+  top: 0.25em;
+  right: 0.2em;
+  border: 0px;
+  height: 18px;
 }
 
-header .span_position {
+.header .span_position {
   position: relative;
-  top: 1px;
-  left: 15px;
+  top: 0.3em;
+  left: 0.4em;
+  color: #FFFFFF
+}
+.pull_right_img {
+  border: 0px;
 }
 
 h3 {
@@ -45,30 +51,39 @@ h3 {
 }
 
 .main {
-  width: 300px;
-  height: 250px;
-  padding-top: 20px;
+  width: 360px;
+  height: 266px;
+  padding-top: 1em;
+  padding-left: 0.5em;
   overflow-y: auto;
   display: block;
   margin: 0 auto;
+  text-align: justify;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 
-footer {
+.footer {
   width: 100%;
   height: 28px;
   background-color: #f0f0f0;
 }
 
-footer .img_position {
+.footer .img_position {
   position: relative;
-  top: 5px;
-  right: 15px;
+  top: 0.3em;
+  border: 0;
+  height: 18px;
 }
 
-footer .span_position {
+.footer .span_position {
   position: relative;
-  top: 2px;
-  right: 12px;
+  top: 0.1em;
+  right: 0.4em;
+}
+.footer a{
+  cursor:pointer;
+  text-decoration: none;
 }
 
 div.pull_left {
@@ -78,30 +93,59 @@ div.pull_left {
 div.pull_right {
   float: right;
 }
+h3 {
+  font-weight: bold;
+}
+
+a {
+  color: #4284d9;
+}
 </style>
 
 <body>
-  <header>
+  <div class="header">
     <div class="pull_left"><span class="span_position">网管提示</span></div>
     <div class="pull_right">
-      <a href="#"><img class="img_position" src="images/u4368.png"></a>
+      <a class="pull_right_a" href="#"><img class="img_position" src="images/u4368.png"></a>
     </div>
-  </header>
-  <section>
+  </div>
+  <div>
     <div class="main">
-      <h3><strong>英雄联盟电信大区网络波动公告</strong></h3>
-      <p>部分电信大区出现网络异常波动，部分用户可能出现匹配时间过长、登录排队严重、掉线等异常问题。</p>
-      <p><a href="#">查看官方链接</a></p>
+      <h3>英雄联盟电信大区网络波动公告</h3>
+      <div style="overflow:hidden;height: 156px;" id="textCore">尊敬的召唤师：<p>　　由于进行系统升级，我们将于4月19日7：30至12：00对均衡教均衡均衡均衡均衡派、流、均衡教派、影流、比尔吉沃特、德玛西亚进行停机维护，维护完成后将第一时间开启。</p><p>　　感谢大家对《英雄联盟》的大力支大力。</p></div>
+      <p><a style="margin-left:0em;" href="#">查看详情</a></p>
     </div>
-  </section>
-  <footer>
+  </div>
+  <div class="footer">
     <a href="#">
       <div class="pull_right">
         <img class="img_position" src="images/u7152.png">
         <span class="span_position">更多公告</span>
       </div>
     </a>
-  </footer>
+  </div>
 </body>
+<script type="text/javascript">
+  function substringText() {
+    var obj = document.getElementById('textCore');
+    var text = obj.innerHTML;
+    if (text != '') {
+      var str = '';
+      var size = 100;
+      var filter = ['<','p','>','。', '-', ';', '，', '/'];
+      var filterNum = 0;
+      if (text.length > size) {  str = '...';}
 
+      for (var i = 0; i < filter.length; i++) {
+        if (filter[i] == text.substring((size - (4+filterNum)), (size - (3+filterNum)))) {
+          size = size - 1;
+          filterNum += 1;
+          i = -1;
+        }
+      }
+      obj.innerHTML = text.substring(0, (size- (3+filterNum))) + str;
+    }
+  }
+  window.onload = substringText;
+</script>
 </html>
